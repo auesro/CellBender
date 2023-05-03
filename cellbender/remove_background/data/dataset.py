@@ -862,9 +862,9 @@ def get_matrix_from_cellranger_mtx(filedir: str) \
     elif cellranger_version == 2:
 
         # Read in the count matrix using scipy.
-        matrix_file = os.path.join(filedir, 'matrix.mtx')
-        gene_file = os.path.join(filedir, "genes.tsv")
-        barcode_file = os.path.join(filedir, "barcodes.tsv")
+        matrix_file = os.path.join(filedir, 'matrix.mtx.gz')
+        gene_file = os.path.join(filedir, "genes.tsv.gz")
+        barcode_file = os.path.join(filedir, "barcodes.tsv.gz")
 
         # Read in gene names.
         gene_data = np.genfromtxt(fname=gene_file,
@@ -889,7 +889,7 @@ def get_matrix_from_cellranger_mtx(filedir: str) \
 
     # Read in barcode names.
     barcodes = np.genfromtxt(fname=barcode_file,
-                             delimiter="\t", skip_header=0, dtype='<U20')
+                             delimiter="\t", skip_header=0, dtype='<U100')
     
     # Issue warnings if necessary, based on dimensions matching.
     if count_matrix.shape[1] != len(gene_names):
