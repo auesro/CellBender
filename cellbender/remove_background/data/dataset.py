@@ -795,9 +795,9 @@ def get_matrix_from_cellranger_mtx(filedir: str) \
 
     For CellRanger v2:
     The directory must contain three files:
-        matrix.mtx
-        barcodes.tsv
-        genes.tsv
+        matrix.mtx.gz
+        barcodes.tsv.gz
+        genes.tsv.gz
 
     For CellRanger v3:
     The directory must contain three files:
